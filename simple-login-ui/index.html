@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Nari — Women Empowerment Platform</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="container">
+    <section class="card" aria-labelledby="login-title">
+      <header class="brand" role="banner">
+        <div class="logo">N</div>
+        <div>
+          <div class="title">Nari</div>
+          <div style="font-size:12px;color:var(--muted);">Women Empowerment Platform</div>
+        </div>
+      </header>
+
+      <h1 id="login-title">Welcome Back</h1>
+      <p class="subtitle">Sign in to access mentorship, resume help and empowerment resources.</p>
+
+      <form id="login-form" class="form" novalidate>
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" placeholder="you@example.com" required />
+
+        <label for="password">Password</label>
+        <div class="password-row">
+          <input id="password" name="password" type="password" placeholder="••••••••" required minlength="6" />
+          <button type="button" id="toggle-password" aria-label="Show password">Show</button>
+        </div>
+
+        <div class="actions">
+          <button id="login-btn" type="submit" class="primary">Log in</button>
+          <button id="guest-btn" type="button" class="secondary">Continue as Guest</button>
+        </div>
+
+        <p id="status" class="status" role="status" aria-live="polite"></p>
+      </form>
+
+      <footer class="meta">
+        <a href="#">Forgot password?</a>
+        <span>•</span>
+        <a href="#">Create account</a>
+      </footer>
+    </section>
+
+    <section class="panel">
+      <h2>Rise Strong</h2>
+      <p><strong>Mentorship. Skills. Confidence.</strong></p>
+      <p>`Nari` provides mentorship, resume-building assistance, and structured programs that help women grow their careers and achieve their goals. Sign in to join a supportive community and access personalized resources.</p>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

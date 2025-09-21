@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Nari Dashboard</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main style="max-width:900px;margin:48px auto;padding:24px">
+    <header style="display:flex;justify-content:space-between;align-items:center;margin-bottom:18px">
+      <div style="display:flex;align-items:center;gap:12px">
+        <div class="logo">N</div>
+        <div>
+          <div style="font-weight:800">Nari</div>
+          <div style="font-size:12px;color:var(--muted)">Women Empowerment Platform</div>
+        </div>
+      </div>
+      <button id="logout" class="secondary">Log out</button>
+    </header>
+
+    <section class="card" id="content">
+      <h1 id="who">Welcome</h1>
+      <p id="desc">Loading your profile...</p>
+    </section>
+  </main>
+  <script>
+    async function loadProfile(){
+      const token = localStorage.getItem('token');
+      if (!token) return window.location.href = '/';
+      try {
+        const res = await fetch('/api/me', { headers: { 'Authorization': 'Bearer ' + token } });
+        if (!res.ok) { localStorage.removeItem('token'); return window.location.href = '/'; }
+        const data = await res.json();
+        document.getElementById('who').textContent = 'Hello, ' + (data.user.name || data.user.email.split('@')[0]);
+        document.getElementById('desc').textContent = 'Member since ' + new Date(data.user.created_at).toLocaleDateString();
+      } catch (e) { localStorage.removeItem('token'); window.location.href = '/'; }
+    }
+    document.getElementById('logout').addEventListener('click', () => { localStorage.removeItem('token'); window.location.href = '/'; });
+    loadProfile();
+  </script>
+</body>
+</html>
