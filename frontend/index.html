@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Login — Nari Frontend</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <main class="login-page">
+      <div class="card">
+        <h1 class="brand">Nari</h1>
+        <form id="loginForm" class="login-form" novalidate>
+          <label for="username">Username</label>
+          <input id="username" name="username" type="text" autocomplete="username" required />
+
+          <label for="password">Password</label>
+          <input id="password" name="password" type="password" autocomplete="current-password" required />
+
+          <div class="actions">
+            <button type="submit" class="btn">Log in</button>
+          </div>
+
+          <p id="message" class="message" aria-live="polite"></p>
+        </form>
+      </div>
+    </main>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
